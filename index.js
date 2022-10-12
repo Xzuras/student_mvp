@@ -1,18 +1,18 @@
-const ENV = "production";
-let url = ENV == "production" ? 'https://inventory-ap.onrender.com/api/guitars' : 'http://localhost:4000/api/guitars'
+let ENV = "production"
+
 let searchButton = document.getElementById('searchButton');
 let searchBar = document.getElementById('searchBar');
 let container = document.getElementById('container');
 
-
+let url = ENV !== "production" ? 'https://inventory-ap.onrender.com/api/guitars' : 'http://localhost:4000/api/guitars'
 searchButton.addEventListener('click', () => {
     fetch(url)
     .then((response) => response.json())
     .then((data) => allData(data));
  });
-//container.innerHTML = JSON.stringify(data);
+
 function allData(data){
-   //container.innerHTML = JSON.stringify(data);
+ 
     for (let i = 0; i < data.length; i++) {
    
         appendData(data[i].id, data[i].model, data[i].brand, data[i].color, data[i].fretnum)
