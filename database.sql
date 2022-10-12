@@ -13,7 +13,7 @@ CREATE TABLE guitars (
 
 INSERT INTO guitars (model, brand, color, fretNum) VALUES
 ('Stratocastor', 'Fender', 'Red', 21),
-('Pacifica', 'Yahmaha', 'Green', 22),
+('Pacifica', 'Yamaha', 'Green', 22),
 ('Les Paul', 'Gibson', 'Orange', 22),
 ('Prestige', 'Ibanez', 'Blue', 24),
 ('Dinky', 'Jackson', 'Red', 24),
