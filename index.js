@@ -1,4 +1,5 @@
-let url = 'http://localhost:4000/api/guitars';
+const ENV = "production";
+let url = ENV == "production" ? 'https://inventory-ap.onrender.com/api/guitars' : 'http://localhost:4000/api/guitars'
 let searchButton = document.getElementById('searchButton');
 let searchBar = document.getElementById('searchBar');
 let container = document.getElementById('container');
