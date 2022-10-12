@@ -4,7 +4,7 @@ let searchButton = document.getElementById('searchButton');
 let searchBar = document.getElementById('searchBar');
 let container = document.getElementById('container');
 
-let url = ENV !== "production" ? "https://inventory-ap.onrender.com/api/guitars" : "http://localhost:4000/api/guitars";
+let url = ENV == "production" ? "https://inventory-ap.onrender.com/api/guitars" : "http://localhost:4000/api/guitars";
 //let url = "http://localhost:4000/api/guitars";
 //let url = "https://inventory-ap.onrender.com/api/guitars";
 searchButton.addEventListener('click', () => {
