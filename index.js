@@ -19,13 +19,15 @@ function allData(data){
 };
 
 function appendData(guitarId, model, brand, color, fretNum) {
+
     let guitarDiv = document.getElementById('guitars')
-    
+    let resultCard = document.createElement('div');
+    resultCard.setAttribute("id", "result-card")
+    guitarDiv.append(resultCard)
     let deleteButton = document.createElement('button');
     deleteButton.classList.add(guitarId);
     deleteButton.innerHTML = "DELETE";
-  // let deleteClass = document.querySelector(`.${guitarId}`);
-//console.log(deleteButton);
+
 
     let modelTag = document.createElement("h1");
     modelTag.innerHTML = `Model: ${model}`
@@ -36,11 +38,11 @@ function appendData(guitarId, model, brand, color, fretNum) {
     let fretNumTag = document.createElement("h4");
     fretNumTag.innerHTML = `Fret# = ${fretNum}`
     
-    guitarDiv.append(modelTag);
-    guitarDiv.append(brandTag);
-    guitarDiv.append(colorTag);
-    guitarDiv.append(fretNumTag);
-    guitarDiv.append(deleteButton);
+    resultCard.appendChild(modelTag);
+    resultCard.appendChild(brandTag);
+    resultCard.appendChild(colorTag);
+    resultCard.appendChild(fretNumTag);
+    resultCard.appendChild(deleteButton);
     
     deleteButton.addEventListener("click", (event) => {
      let targetId = event.target.classList[0]
