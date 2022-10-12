@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+#container {
+    float: inline-end;
+
+}
+
+#guitars {
+    border: 30px solid red;
+    border-color: aliceblue;
+}
