@@ -4,6 +4,7 @@ let searchButton = document.getElementById('searchButton');
 let searchBar = document.getElementById('searchBar');
 let container = document.getElementById('container');
 
+
 //let url = ENV == "production" ? "https://inventory-ap.onrender.com/api/guitars" : "http://localhost:4000/api/guitars";
 //let url = "http://localhost:4000/api/guitars";
 let url = "https://inventory-ap.onrender.com/api/guitars";
@@ -28,9 +29,20 @@ function appendData(guitarId, model, brand, color, fretNum) {
     let resultCard = document.createElement('div');
     resultCard.setAttribute("id", "result-card")
     guitarDiv.append(resultCard)
+    
+  
+    
     let deleteButton = document.createElement('button');
+    deleteButton.setAttribute("id", "deleteButton")
     deleteButton.classList.add(guitarId);
     deleteButton.innerHTML = "DELETE";
+
+    let editButton = document.createElement("button");
+    editButton.setAttribute("id", "editButton")
+    editButton.classList.add(guitarId);
+    editButton.innerHTML = "EDIT";
+
+
 
 
     let modelTag = document.createElement("h1");
@@ -47,6 +59,8 @@ function appendData(guitarId, model, brand, color, fretNum) {
     resultCard.appendChild(colorTag);
     resultCard.appendChild(fretNumTag);
     resultCard.appendChild(deleteButton);
+    resultCard.appendChild(editButton);
+  
     
     deleteButton.addEventListener("click", (event) => {
      let targetId = event.target.classList[0]
@@ -55,6 +69,26 @@ function appendData(guitarId, model, brand, color, fretNum) {
         method: 'DELETE'
     })
     })
+ 
+ 
+    editButton.addEventListener("click", (event) => {
+        let targetId = event.target.classList[0]
+       
+        var inputData = {model: modelInput.value, brand: brandInput.value, color: colorInput.value, fretNum: fretInput.value}
+        console.log(modelInput.value)
+    fetch(`${url}/update/${targetId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(inputData),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then((response) => response)  
+    .then((data) => {
+        console.log("Success:", data)
+    })
+    })
+
 
 };
 
@@ -83,3 +117,7 @@ fetch(`${url}/create`, {
 })
 })
 
+
+
+
+ 

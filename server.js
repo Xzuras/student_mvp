@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 let cors = require('cors');
+
 const config = require('./config')[process.env.NODE_ENV||"dev"]
 const PORT = config.port
 //var bodyParser = require("body-parser");
@@ -55,6 +56,15 @@ pool.query(`DELETE FROM guitars WHERE id = ${deletedId};`)
 })
 
 
+app.patch("/api/guitars/update/:id", (req, res) => {
+    let patchId = req.params.id;
+    let patchBody = req.body;
+    //`UPDATE guitars SET model = '${patchBody.model}', brand = '${patchBody.brand}', color = '${patchBody.color}', fretNum = ${patchBody.fretNum} WHERE id = ${patchId};`
+
+    console.log(patchBody);
+    pool.query(`UPDATE guitars SET model = '${patchBody.model}', brand = '${patchBody.brand}', color = '${patchBody.color}', fretNum = ${patchBody.fretNum} WHERE id = ${patchId};`)
+    .then(res.send('UPDTATED'))
+})
 
 
 

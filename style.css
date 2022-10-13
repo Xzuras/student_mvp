@@ -16,7 +16,7 @@ body {
     border-radius: 5px;
     
 }
-#result-card > button {
+#deleteButton {
     display: inline-block;
     padding: 5px 15px;
     font-size: 20px;
@@ -31,9 +31,9 @@ body {
     box-shadow: 0 5px #999;
 }
   
-#result-card > button:hover {background-color: #fa0707}
+#deleteButton:hover {background-color: #fa0707}
   
-#result-card > button:active {
+#deleteButton:active {
     background-color: #e95b03;
     box-shadow: 0 5px #666;
     transform: translateY(1px);
@@ -77,6 +77,30 @@ body {
 
   #createButton:active {
     background-color: #37c304;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+  }
+
+
+  #editButton {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.555);
+    background-color: aliceblue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+  
+#editButton:hover {background-color: #266cf7}
+  
+#editButton:active {
+    background-color: #0d1ce6;
     box-shadow: 0 5px #666;
     transform: translateY(1px);
   }
